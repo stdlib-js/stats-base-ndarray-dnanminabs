@@ -50,6 +50,11 @@ limitations under the License.
 To use in Observable,
 
 ```javascript
+dnanminabs = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-dnanminabs@umd/browser.js' )
+```
+The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/stats-base-ndarray-dnanminabs/tags). For example,
+
+```javascript
 dnanminabs = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-dnanminabs@v0.1.1-umd/browser.js' )
 ```
 
@@ -62,7 +67,7 @@ var dnanminabs = require( 'path/to/vendor/umd/stats-base-ndarray-dnanminabs/inde
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-dnanminabs@v0.1.1-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-dnanminabs@umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -123,7 +128,7 @@ The function has the following parameters:
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-bernoulli@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ctor@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-dnanminabs@v0.1.1-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-dnanminabs@umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
