@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,18 +16,11 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/stats-strided-dnanminabs' ).ndarray;
-
-
-// MAIN //
+import { float64ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Computes the minimum absolute value of a one-dimensional double-precision floating-point ndarray, ignoring `NaN` values.
@@ -38,8 +31,8 @@ var strided = require( '@stdlib/stats-strided-dnanminabs' ).ndarray;
 *
 *     -   a one-dimensional input ndarray.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {number} minimum absolute value
+* @param arrays - array-like object containing ndarrays
+* @returns minimum absolute value
 *
 * @example
 * var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
@@ -49,12 +42,9 @@ var strided = require( '@stdlib/stats-strided-dnanminabs' ).ndarray;
 * var v = dnanminabs( [ x ] );
 * // returns 1.0
 */
-function dnanminabs( arrays ) {
-	var x = arrays[ 0 ];
-	return strided( numelDimension( x, 0 ), getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-}
+declare function dnanminabs( arrays: [ float64ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = dnanminabs;
+export = dnanminabs;
