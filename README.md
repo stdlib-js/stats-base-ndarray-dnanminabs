@@ -41,14 +41,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-ndarray-dnanminabs
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import dnanminabs from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-dnanminabs@esm/index.mjs';
+var dnanminabs = require( '@stdlib/stats-base-ndarray-dnanminabs' );
 ```
 
 #### dnanminabs( arrays )
@@ -56,11 +74,9 @@ import dnanminabs from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray
 Computes the minimum absolute value of a one-dimensional double-precision floating-point ndarray, ignoring `NaN` values.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
-import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ctor@esm/index.mjs';
+var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
 
-var xbuf = new Float64Array( [ 1.0, -2.0, NaN, 2.0 ] );
-var x = new ndarray( 'float64', xbuf, [ 4 ], [ 1 ], 0, 'row-major' );
+var x = new Float64Vector( [ 1.0, -2.0, NaN, 2.0 ] );
 
 var v = dnanminabs( [ x ] );
 // returns 1.0
@@ -90,18 +106,13 @@ The function has the following parameters:
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import uniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-uniform@esm/index.mjs';
-import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@esm/index.mjs';
-import bernoulli from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-bernoulli@esm/index.mjs';
-import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ctor@esm/index.mjs';
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
-import dnanminabs from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-dnanminabs@esm/index.mjs';
+```javascript
+var uniform = require( '@stdlib/random-base-uniform' );
+var bernoulli = require( '@stdlib/random-base-bernoulli' );
+var fillBy = require( '@stdlib/ndarray-fill-by' );
+var zeros = require( '@stdlib/ndarray-zeros' );
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var dnanminabs = require( '@stdlib/stats-base-ndarray-dnanminabs' );
 
 function rand() {
     if ( bernoulli( 0.8 ) < 1 ) {
@@ -110,16 +121,14 @@ function rand() {
     return uniform( -50.0, 50.0 );
 }
 
-var xbuf = filledarrayBy( 10, 'float64', rand );
-var x = new ndarray( 'float64', xbuf, [ xbuf.length ], [ 1 ], 0, 'row-major' );
+var opts = {
+    'dtype': 'float64'
+};
+var x = fillBy( zeros( [ 10 ], opts ), rand );
 console.log( ndarray2array( x ) );
 
 var v = dnanminabs( [ x ] );
 console.log( v );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -143,7 +152,7 @@ console.log( v );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
