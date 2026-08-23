@@ -1,7 +1,7 @@
-/**
+/*
 * @license Apache-2.0
 *
-* Copyright (c) 2026 The Stdlib Authors.
+* Copyright (c) 2025 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,16 +16,11 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var serialize = require( '@stdlib/ndarray-base-serialize-meta-data' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var addon = require( './../src/addon.node' );
-
-
-// MAIN //
+import { float64ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Computes the minimum absolute value of a one-dimensional double-precision floating-point ndarray, ignoring `NaN` values.
@@ -36,9 +31,8 @@ var addon = require( './../src/addon.node' );
 *
 *     -   a one-dimensional input ndarray.
 *
-* @private
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {number} minimum absolute value
+* @param arrays - array-like object containing ndarrays
+* @returns minimum absolute value
 *
 * @example
 * var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
@@ -48,12 +42,9 @@ var addon = require( './../src/addon.node' );
 * var v = dnanminabs( [ x ] );
 * // returns 1.0
 */
-function dnanminabs( arrays ) {
-	var x = arrays[ 0 ];
-	return addon( getData( x ), serialize( x ) );
-}
+declare function dnanminabs( arrays: [ float64ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = dnanminabs;
+export = dnanminabs;
